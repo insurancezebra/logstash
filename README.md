@@ -46,6 +46,13 @@ Logstash core will continue to exist under this repository and all related issue
 - [Logstash Product Information](https://www.elastic.co/products/logstash)
 - [Elastic Support](https://www.elastic.co/subscriptions)
 
+## The Zebra - specific setup
+`git checkout v2.4.0-gelf-tcp`
+`brew install gnu-tar`
+`sudo gem install fpm`
+`git clone https://github.com/JeremyEinfeld/logstash-output-gelf.git vendor/logstash-output-gelf`
+To build a deb: `rake artifact:deb`
+
 ## Developing
 
 Logstash uses [JRuby](http://jruby.org/) which gets embedded in the `vendor/jruby/` directory. It is recommended but not mandatory that you also use JRuby as your local Ruby interpreter and for this you should consider using a Ruby version manager such as [RVM](https://rvm.io/) or [rbenv](https://github.com/sstephenson/rbenv). It is possible to run the rake tasks and the `bin/` commands without having JRuby locally installed in which case the embedded JRuby will be used automatically. If you have a local JRuby installed you can force logstash to use your local JRuby instead of the embedded JRuby with the `USE_RUBY=1` environment variable.
